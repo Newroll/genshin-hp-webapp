@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="genshin, genshin impact, enemy hp calculator">
+    <meta name="description" content="Genshin Impact Enemy HP Calculator">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Genshin Impact Enemy HP Calculator</h1>
+
+    <form autocomplete="off">
+        Enemy
+        <input type="text" name="enemy" id="enemy" onKeyUp="showResults(this.value)" placeholder="Start typing...">
+        <small class="hint">Copy & paste enemy name</small>
+        <div id="resultlist"></div>
+
+        Enemy Level
+        <input type="number" min="1" max="90" value="90" id="enemylvl" name="enemylvl">
+
+        <a href="https://genshin-impact.fandom.com/wiki/Level_Scaling/Enemy#Other_Multipliers"><u>HP Multiplier</u></a>
+        <input type="number" min="1" max="10" value="1" id="multiplier" name="multiplier">
+
+        <button onclick="calculate()" type="button">Calculate</button>
+    </form>
+
+    <br>
+
+    <hgroup>
+        <h3>Result: <span id="result"></span></h3>
+        <h4 id="error"></h4>
+    </hgroup>
+
+    <br>
+
+    <div class="footer">
+        Updated as of version 3.6
+        <br>
+        <a href="https://github.com/Newroll/genshin-hp-webapp"><u>Github</u></a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
