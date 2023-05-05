@@ -27,14 +27,18 @@ function showResults(val) {
     res.innerHTML = '<ul>' + list + '</ul>';
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function calculate() {
     var enemy = document.getElementById("enemy").value;
     var level = document.getElementById("enemylvl").value;
     var multiplier = document.getElementById("multiplier").value;
     var result = document.getElementById("result").value;
 
-    if (level > 90 || level < 1) {
-        alert("Enemy level must be between 1 and 90!");
+    if (level > 100 || level < 1) {
+        alert("Enemy level must be between 1 and 100!");
         return;
     }
 
@@ -43,8 +47,8 @@ function calculate() {
         return;
     }
 
-    if (multiplier > 5) {
-        alert("Multiplier cannot be greater than 5!");
+    if (multiplier > 10) {
+        alert("Multiplier cannot be greater than 10!");
         return;
     }
 
@@ -54,7 +58,7 @@ function calculate() {
     }
 
     var enemyindex = enemynames.indexOf(enemy);
-    result = Math.round(enemyscaling[enemyindex] * magicnumber[level] * multiplier);
+    result = numberWithCommas(Math.round(enemyscaling[enemyindex] * magicnumber[level] * multiplier));
 
     document.getElementById("result").innerHTML = result;
 }
