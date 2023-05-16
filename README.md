@@ -1,0 +1,1 @@
+# https://genshinhp.athenas.dev
